@@ -41,8 +41,8 @@ export class ConfigParser {
       return { includes, excludes, respectGitignore };
     } catch {
       return {
-        includes: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
-        excludes: ['node_modules/**', 'dist/**', 'out/**', '**/*.test.*'],
+        includes: ['**/*'],
+        excludes: [],
         respectGitignore,
       };
     }

@@ -1,4 +1,4 @@
-# Code2Context
+# Distill
 
 Extensão VSCode que exporta código-fonte selecionado para Markdown otimizado para consumo de LLMs [][].
 
@@ -18,5 +18,5 @@ npm install
 npm run compile
 npm install -g @vscode/vsce
 vsce package
-code --install-extension code2context-1.0.0.vsix
+code --install-extension distill-1.0.0.vsix
 ```

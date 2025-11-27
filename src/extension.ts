@@ -4,7 +4,7 @@ import { refreshCommand } from './commands/refreshCommand';
 import { configureCommand } from './commands/configureCommand';
 
 export function activate(context: vscode.ExtensionContext): void {
-  console.log('Code2Context is now active');
+  console.log('Distill is now active');
 
   const exportDisposable = vscode.commands.registerCommand(
     'aicontext.export',
@@ -29,5 +29,5 @@ export function activate(context: vscode.ExtensionContext): void {
 }
 
 export function deactivate(): void {
-  console.log('Code2Context is now deactivated');
+  console.log('Distill is now deactivated');
 }

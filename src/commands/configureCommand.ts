@@ -1,29 +1,47 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 
-const DEFAULT_CONFIG = `# Code2Context Configuration
-# Sintaxe similar ao .gitignore
+const DEFAULT_CONFIG = `# Distill - Arquivo de Configuração com sintaxe GLOB
+# Linhas sem "!" = INCLUIR
+# Linhas com "!" = EXCLUIR
 
-# Incluir arquivos TypeScript/JavaScript
-src/**/*.ts
-src/**/*.tsx
-src/**/*.js
-src/**/*.jsx
+# ===== INCLUIR =====
+# Incluir todos os arquivos (exceto exclusões fixas: node_modules, arquivos ., package-lock.json)
 
-# Excluir node_modules e build
-!node_modules/**
-!dist/**
-!out/**
-!build/**
+# Ou especifique tipos específicos:
+# src/**/*.ts
+# src/**/*.tsx
+# src/**/*.js
+# src/**/*.jsx
+# package.json
+# tsconfig.json
+# README.md
 
-# Excluir testes (remova se quiser incluir)
-!**/*.test.ts
-!**/*.spec.ts
+# ===== EXCLUIR =====
+# Adicione aqui pastas/arquivos que você quer excluir
+# Exemplos:
 
-# Incluir arquivos de configuração importantes
-package.json
-tsconfig.json
-README.md
+# Excluir builds
+# !dist/**
+# !build/**
+# !out/**
+
+# Excluir testes
+# !**/*.test.ts
+# !**/*.spec.ts
+
+# Excluir pasta específica
+# !temp/**
+# !src/test**
+
+# Excluir arquivo específico
+# !src/config/secrets.ts
+# !README.old.md
+
+# NOTA: A extensão já exclui automaticamente:
+# - node_modules (sempre)
+# - Arquivos que começam com "." (sempre)
+# - package-lock.json (sempre)
 `;
 
 export async function configureCommand(): Promise<void> {

@@ -1,11 +1,16 @@
 {
-  "name": "code2context",
-  "displayName": "Code2Context",
+  "name": "distill",
+  "displayName": "Distill",
   "description": "Export selected source code to LLM-optimized Markdown",
   "version": "1.0.0",
   "publisher": "marcozito",
   "engines": {
     "vscode": "^1.85.0"
+  },
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvss01/distill"
   },
   "categories": [
     "Other",
@@ -21,19 +26,19 @@
     "commands": [
       {
         "command": "aicontext.export",
-        "title": "Code2Context: Export to Markdown"
+        "title": "distill: Export to Markdown"
       },
       {
         "command": "aicontext.refresh",
-        "title": "Code2Context: Refresh Markdown"
+        "title": "distill: Refresh Markdown"
       },
       {
         "command": "aicontext.configure",
-        "title": "Code2Context: Configure Files"
+        "title": "distill: Configure Files"
       }
     ],
     "configuration": {
-      "title": "Code2Context Exporter",
+      "title": "Distill Exporter",
       "properties": {
         "aicontext.outputFileName": {
           "type": "string",

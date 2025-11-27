@@ -6,11 +6,11 @@ suite('Extension Test Suite', () => {
   vscode.window.showInformationMessage('Start all tests.');
 
   test('Extension should be present', () => {
-    assert.ok(vscode.extensions.getExtension('marcozito.code2context'));
+    assert.ok(vscode.extensions.getExtension('marcozito.distill'));
   });
 
   test('Extension should activate', async () => {
-    const ext = vscode.extensions.getExtension('marcozito.code2context');
+    const ext = vscode.extensions.getExtension('marcozito.distill');
     assert.ok(ext);
     await ext!.activate();
     assert.strictEqual(ext!.isActive, true);

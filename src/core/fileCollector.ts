@@ -30,6 +30,11 @@ export class FileCollector {
     for (const file of allFiles) {
       const relativePath = path.relative(this.workspacePath, file.fsPath);
 
+      const fileName = path.basename(relativePath);
+      if (fileName.startsWith('.') || fileName === 'package-lock.json') {
+        continue;
+      }
+
       if (!this.matcher.shouldInclude(relativePath)) {
         continue;
       }
@@ -65,6 +70,7 @@ export class FileCollector {
   }
 
   private async findAllFiles(): Promise<vscode.Uri[]> {
+    // Excluir apenas node_modules (por performance)
     const pattern = '**/*';
     const exclude = '**/node_modules/**';
 
@@ -72,22 +78,10 @@ export class FileCollector {
   }
 
   private isBinaryContent(content: string): boolean {
+    // Verificação apenas de null bytes (indicador real de binário)
     const sample = content.substring(0, 8000);
     const nullBytes = (sample.match(/\0/g) || []).length;
-
-    if (nullBytes > 0) {
-      return true;
-    }
-
-    let suspiciousChars = 0;
-    for (let i = 0; i < Math.min(sample.length, 1000); i++) {
-      const code = sample.charCodeAt(i);
-      if (code < 32 && code !== 9 && code !== 10 && code !== 13) {
-        suspiciousChars++;
-      }
-    }
-
-    return suspiciousChars > sample.length * 0.01;
+    return nullBytes > 0;
   }
 
   private detectLanguage(filePath: string): string {
