@@ -4,6 +4,21 @@
   "description": "Export selected source code to LLM-optimized Markdown",
   "version": "1.0.0",
   "publisher": "marcozito",
+  "license": "MIT",
+  "keywords": [
+    "ai",
+    "llm",
+    "chatgpt",
+    "claude",
+    "markdown",
+    "export",
+    "code",
+    "context",
+    "prompt",
+    "assistant",
+    "copilot",
+    "documentation"
+  ],
   "engines": {
     "vscode": "^1.85.0"
   },
