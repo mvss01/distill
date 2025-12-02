@@ -1,0 +1,100 @@
+{
+  "name": "distill",
+  "displayName": "Distill",
+  "description": "Export selected source code to LLM-optimized Markdown",
+  "version": "1.0.2",
+  "publisher": "marcozito",
+  "license": "MIT",
+  "keywords": [
+    "ai",
+    "llm",
+    "chatgpt",
+    "claude",
+    "markdown",
+    "export",
+    "code",
+    "context",
+    "prompt",
+    "assistant",
+    "copilot",
+    "documentation"
+  ],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvss01/distill"
+  },
+  "categories": [
+    "Other",
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onCommand:aicontext.export",
+    "onCommand:aicontext.refresh",
+    "onCommand:aicontext.configure"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "aicontext.export",
+        "title": "distill: Export to Markdown"
+      },
+      {
+        "command": "aicontext.refresh",
+        "title": "distill: Refresh Markdown"
+      },
+      {
+        "command": "aicontext.configure",
+        "title": "distill: Configure Files"
+      }
+    ],
+    "configuration": {
+      "title": "Distill Exporter",
+      "properties": {
+        "aicontext.outputFileName": {
+          "type": "string",
+          "default": "ai-context.md",
+          "description": "Nome do arquivo Markdown gerado"
+        },
+        "aicontext.respectGitignore": {
+          "type": "boolean",
+          "default": true,
+          "description": "Respeitar .gitignore automaticamente"
+        },
+        "aicontext.maxFileSize": {
+          "type": "number",
+          "default": 1048576,
+          "description": "Tamanho máximo de arquivo em bytes (1MB padrão)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "vscode-test",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^18.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "eslint": "^8.54.0",
+    "glob": "^10.3.10",
+    "mocha": "^10.2.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "minimatch": "^9.0.3"
+  }
+}

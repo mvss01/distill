@@ -1,0 +1,7 @@
+src/**/*.ts
+src/**/*.tsx
+!src/test/**
+CHANGELOG.md
+README.md
+package.json
+tsconfig.json
